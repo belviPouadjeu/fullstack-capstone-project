@@ -8,7 +8,6 @@ const authSource = 'admin';
 
 // MongoDB connection URL
 const url = process.env.MONGO_URL;
-console.log(url)
 
 const dbName = 'productdb';
 const collectionName = 'products';
