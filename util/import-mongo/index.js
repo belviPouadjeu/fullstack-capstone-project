@@ -13,7 +13,7 @@ const dbName = 'productdb';
 const collectionName = 'products';
 
 // notice you have to load the array of products into the data object
-const data = JSON.parse(fs.readFileSync('sample.json', 'utf8')).docs;
+const data = JSON.parse(fs.readFileSync('products.json', 'utf8')).docs;
 
 // connect to database and insert data into the collection
 async function loadData() {
