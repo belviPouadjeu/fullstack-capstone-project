@@ -22,8 +22,6 @@ let filename = `${__dirname}/gifts.json`;
 const dbName = 'giftdb';
 const collectionName = 'gifts';
 
-console.log("buhaa haa haa"+__dirname);
-
 // notice you have to load the array of gifts into the data object
 const data = JSON.parse(fs.readFileSync(filename, 'utf8')).docs;
 
