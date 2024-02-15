@@ -24,14 +24,14 @@ const Profile = () => {
   const fetchUserProfile = async () => {
     try {
       const authtoken = sessionStorage.getItem("auth-token");
-      const email = sessionStorage.getItem("email"); // Get the email from session storage
+      const email = sessionStorage.getItem("email");
       const name=sessionStorage.getItem('name');
       if (name || authtoken) {
                 const storedUserDetails = {
                   name: name,
                   email:email
                 };
-        
+
                 setUserDetails(storedUserDetails);
                 setUpdatedDetails(storedUserDetails);
               }
@@ -56,7 +56,7 @@ const handleSubmit = async (e) => {
 
   try {
     const authtoken = sessionStorage.getItem("auth-token");
-    const email = sessionStorage.getItem("email"); // Get the email from session storage
+    const email = sessionStorage.getItem("email");
 
     if (!authtoken || !email) {
       navigate("/app/login");
@@ -65,22 +65,17 @@ const handleSubmit = async (e) => {
 
     const payload = { ...updatedDetails };
     const response = await fetch(`${urlConfig.backendUrl}/api/auth/update`, {
-      method: "PUT",
-      headers: {
-        "Authorization": `Bearer ${authtoken}`,
-        "Content-Type": "application/json",
-        "Email": email,
-      },
-      body: JSON.stringify(payload),
+      //Step 1: Task 1
+      //Step 1: Task 2
+      //Step 1: Task 3
     });
 
-    console.log(response);
     if (response.ok) {
       // Update the user details in session storage
-      sessionStorage.setItem("name", updatedDetails.name);
+      //Step 1: Task 4
+      //Step 1: Task 5
       setUserDetails(updatedDetails);
       setEditMode(false);
-      setUserName(updatedDetails.name);
       // Display success message to the user
       setChanged("Name Changed Successfully!");
       setTimeout(() => {
