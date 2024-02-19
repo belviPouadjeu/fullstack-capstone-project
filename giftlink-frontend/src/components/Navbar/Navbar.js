@@ -8,7 +8,9 @@ export default function Navbar() {
             <div className="collapse navbar-collapse" id="navbarNav">
                 <ul className="navbar-nav">
                     // Task 1: Simplify navigation links
-                    {{insert simplified navigation links here}}
+                    {{
+                        //insert simplified navigation links here
+                    }}
                 </ul>
             </div>
         </nav>
