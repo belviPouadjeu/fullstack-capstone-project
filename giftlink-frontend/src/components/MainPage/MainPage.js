@@ -8,17 +8,23 @@ function MainPage() {
 
     useEffect(() => {
         // Task 1: Write async fetch operation
-        {{insert code here}}
+        {{
+            //insert code here
+        }}
     }, []);
 
     // Task 2: Navigate to details page
     const goToDetailsPage = (productId) => {
-        {{insert code here}}
+        {{
+            //insert code here
+        }}
     };
 
     // Task 3: Format timestamp
     const formatDate = (timestamp) => {
-        {{insert code here}}
+        {{
+            //insert code here
+        }}
     };
 
     const getConditionClass = (condition) => {
@@ -33,15 +39,24 @@ function MainPage() {
                         <div className="card product-card">
                             
                             // Task 4: Display gift image or placeholder
-                            {{insert code here}}
+                            {{
+                                //insert code here
+                            }}
                             
                             <div className="card-body">
                                 
                                 // Task 5: Display gift name
-                                <h5 className="card-title">{{insert code here}}</h5>
+                                <h5 className="card-title">
+                                    {{
+                                        insert code here
+                                    }}
+                                </h5>
                                 
                                 // Task 6: Display formatted date
-                                <p className="card-text">{{insert code here}}</p>
+                                <p className="card-text">
+                                {{
+                                    //insert code here
+                                }}</p>
                                 
                                 <button onClick={() => goToDetailsPage(gift.id)} className="btn btn-primary">
                                     View Details
