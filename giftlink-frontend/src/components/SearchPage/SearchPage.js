@@ -1,11 +1,35 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import {urlConfig} from '../../config';
 
 function SearchPage() {
     // Task 1: Initialize state variables for search criteria and results
     /*insert code here*/
 
-    const navigate = useNavigate();
+   const categories = ['Living', 'Bedroom', 'Bathroom', 'Kitchen', 'Office'];
+    const conditions = ['New', 'Like New', 'Older'];
+
+    useEffect(() => {
+        // fetch all products
+        const fetchProducts = async () => {
+            try {
+                let url = `${urlConfig.backendUrl}/api/gifts`
+                console.log(url)
+                const response = await fetch(url);
+                if (!response.ok) {
+                    //something went wrong
+                    throw new Error(`HTTP error; ${response.status}`)
+                }
+                const data = await response.json();
+                setSearchResults(data);
+            } catch (error) {
+                console.log('Fetch error: ' + error.message);
+            }
+        };
+
+        fetchProducts();
+    }, []);
 
     // Task 2: Fetch search results based on user inputs
     /*insert code here*/
@@ -21,6 +45,8 @@ function SearchPage() {
 
     // Task 6: Display fetched search results
     /*insert code here*/
+
+    const navigate = useNavigate();
 
     // Task 7: Navigate to the details page when a result is clicked
     /*insert code here*/
