@@ -11,7 +11,7 @@
                 "age_days": 400,
                 "age_years": 1.1,
                 "description": "A charming lamp that's been lighting up my reading nook. It casts a soft, inviting glow, perfect for those who love to curl up with a good book. It's seen some of my favorite chapters and is ready to illuminate yours!",
-                "image": "/app/images/lamp.jpeg"
+                "image": "/images/lamp.jpeg"
               },
               {
                 "id": "396",
@@ -24,7 +24,7 @@
                 "age_days": 1073,
                 "age_years": 2.94,
                 "description": "Elegant, flowy curtains that have graced my living room windows, adding a touch of warmth and privacy. They've witnessed many sunny mornings and serene evenings. Ready to bring coziness to your space!",
-                "image": "/app/images/curtains1.jpeg"
+                "image": "/images/curtains1.jpeg"
               },
               {
                 "id": "812",
@@ -37,7 +37,7 @@
                 "age_days": 1053,
                 "age_years": 2.88,
                 "description": "This sturdy, well-loved bookshelf has been my literary companion for years, holding everything from classic novels to modern thrillers. It's looking for a new home where it can cherish your collection as much as it did mine. A few signs of use, but that just adds character!",
-                "image": "/app/images/bookshelf3.jpeg"
+                "image": "/images/bookshelf3.jpeg"
               },
               {
                 "id": "386",
@@ -50,7 +50,7 @@
                 "age_days": 1719,
                 "age_years": 4.71,
                 "description": "These curtains have been the backdrop of my study, offering a serene environment for my hours of reading and writing. They're gently used, still in great condition, and longing for a new view to frame.",
-                "image": "/app/images/curtains2.jpeg"
+                "image": "/images/curtains2.jpeg"
               },
               {
                 "id": "419",
@@ -63,7 +63,7 @@
                 "age_days": 430,
                 "age_years": 1.18,
                 "description": "A compact and practical bookshelf that's been a tiny library of its own in my apartment. If these shelves could talk, they'd tell tales of the many worlds they've held within reach. It's time for it to inspire another avid reader!",
-                "image": "/app/images/bookshelf1.jpeg"
+                "image": "/images/bookshelf2.jpeg"
               },
               {
                 "id": "420",
@@ -76,7 +76,7 @@
                 "age_days": 430,
                 "age_years": 1.18,
                 "description": "This bookshelf has been a fixture in my home office, standing firm with a load of knowledge. It's where I've stored my treasured texts and manuals. I'm parting with it in hopes it will find a new owner who appreciates the stories and wisdom it holds.",
-                "image": "/app/images/bookshelf2.jpeg"
+                "image": "/images/bookshelf2.jpeg"
               },
               {
                 "id": "421",
@@ -89,7 +89,7 @@
                 "age_days": 400,
                 "age_years": 1.09,
                 "description": "This desk chair has been my companion during long work hours. It's sturdy and comfortable, perfect for anyone spending hours at a desk. Selling it to make room for a new one.",
-                "image": "/app/images/desk-chair.jpeg"
+                "image": "/images/desk-chair.jpeg"
               },
               {
                 "id": "422",
@@ -102,7 +102,7 @@
                 "age_days": 600,
                 "age_years": 1.64,
                 "description": "This coffee table has served me well, holding countless cups of coffee and books. It's in great condition and adds a touch of elegance to any living room.",
-                "image": "/app/images/coffee-table.jpeg"
+                "image": "/images/coffee-table.jpeg"
               },
               {
                 "id": "423",
@@ -115,7 +115,7 @@
                 "age_days": 200,
                 "age_years": 0.55,
                 "description": "This laptop stand has been a lifesaver for my posture. It's adjustable and lightweight, making it easy to use anywhere. Selling it because I no longer need it.",
-                "image": "/app/images/laptop-stand.jpeg"
+                "image": "/images/laptop-stand.jpeg"
               },
               {
                 "id": "424",
@@ -128,7 +128,7 @@
                 "age_days": 800,
                 "age_years": 2.19,
                 "description": "This dining table has been the centerpiece of many family gatherings. It's in excellent condition and ready for a new home where it can create more memories.",
-                "image": "/app/images/dining-table.jpeg"
+                "image": "/images/dining-table.jpeg"
               },
               {
                 "id": "425",
@@ -141,7 +141,7 @@
                 "age_days": 1000,
                 "age_years": 2.74,
                 "description": "This couch has been a cozy spot for movie nights and lazy Sundays. It's still comfortable but shows some signs of wear. Selling it to make room for a new one.",
-                "image": "/app/images/couch2.jpeg"
+                "image": "/images/couch2.jpeg"
               },
               {
                 "id": "426",
@@ -154,7 +154,7 @@
                 "age_days": 900,
                 "age_years": 2.47,
                 "description": "This office desk has been my workspace for years. It's sturdy and functional but has some scratches. Selling it as I'm upgrading my office furniture.",
-                "image": "/app/images/office-desk.jpeg"
+                "image": "/images/office-desk.jpeg"
               },
               {
                 "id": "427",
@@ -167,7 +167,7 @@
                 "age_days": 700,
                 "age_years": 1.92,
                 "description": "This TV stand has held my entertainment system with ease. It's in good condition and has served me well. Selling it due to a living room redesign.",
-                "image": "/app/images/tv-stand.jpeg"
+                "image": "/images/tv-stand.jpeg"
               },
               {
                 "id": "428",
@@ -180,7 +180,7 @@
                 "age_days": 1200,
                 "age_years": 3.29,
                 "description": "This bed frame has been a reliable support for many restful nights. It's still in good condition but has some wear marks. Selling it to upgrade to a larger size.",
-                "image": "/app/images/bed-frame.jpeg"
+                "image": "/images/bed-frame.jpeg"
               },
               {
                 "id": "429",
@@ -193,7 +193,7 @@
                 "age_days": 1100,
                 "age_years": 3.01,
                 "description": "This side table has been a convenient spot for lamps and books. It's still functional but has some scratches. Selling it as part of a living room makeover.",
-                "image": "/app/images/side-table.jpeg"
+                "image": "/images/side-table.jpeg"
               },
               {
                 "id": "430",
@@ -206,7 +206,7 @@
                 "age_days": 1300,
                 "age_years": 3.56,
                 "description": "This filing cabinet has organized many documents over the years. It's still functional but shows signs of wear. Selling it as I'm going paperless in my office.",
-                "image": "/app/images/filing-cabinet.jpeg"
+                "image": "/images/filing-cabinet.jpeg"
               }
         ]
     }
