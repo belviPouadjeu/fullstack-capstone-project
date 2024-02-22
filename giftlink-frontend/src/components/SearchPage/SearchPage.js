@@ -4,10 +4,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {urlConfig} from '../../config';
 
 function SearchPage() {
-    // Task 1: Initialize state variables for search criteria and results
-    /*insert code here*/
 
-   const categories = ['Living', 'Bedroom', 'Bathroom', 'Kitchen', 'Office'];
+    //Task 1: Define state variables for the search query, age range, and search results.
+    const categories = ['Living', 'Bedroom', 'Bathroom', 'Kitchen', 'Office'];
     const conditions = ['New', 'Like New', 'Older'];
 
     useEffect(() => {
@@ -31,45 +30,34 @@ function SearchPage() {
         fetchProducts();
     }, []);
 
-    // Task 2: Fetch search results based on user inputs
-    /*insert code here*/
 
-    // Task 3: Dynamically generate category dropdown options
-    /*insert code here*/
-
-    // Task 4: Dynamically generate condition dropdown options
-    /*insert code here*/
-
-    // Task 5: Implement age range slider
-    /*insert code here*/
-
-    // Task 6: Display fetched search results
-    /*insert code here*/
+    // Task 2. Fetch search results from the API based on user inputs.
 
     const navigate = useNavigate();
 
-    // Task 7: Navigate to the details page when a result is clicked
-    /*insert code here*/
+    const goToDetailsPage = (productId) => {
+        // Task 6. Enable navigation to the details page of a selected gift.
+    };
 
-    // Task 8: Implement error handling for fetch operation
-    /*insert code here*/
 
-    // Task 9: Add input field for search query
-    /*insert code here*/
 
-    // Task 10: Implement search button with onClick event to trigger search
-    /*insert code here*/
-
-    // Task 11: Handle loading state during API request
-    /*insert code here*/
-
-    // Task 12: Show a message if no results are found
-    /*insert code here*/
 
     return (
-        <div className="search-page-container">
-            {/* Implement UI elements here, bind them with state variables and event handlers */}
-            {{/*insert code here*/}}
+        <div className="container mt-5">
+            <div className="row justify-content-center">
+                <div className="col-md-6">
+                    <div className="filter-section mb-3 p-3 border rounded">
+                        <h5>Filters</h5>
+                        <div className="d-flex flex-column">
+                            {/* Task 3: Dynamically generate category and condition dropdown options.*/}
+                            {/* Task 4: Implement an age range slider and display the selected value. */}
+                        </div>
+                    </div>
+                    {/* Task 7: Add text input field for search criteria*/}
+                    {/* Task 8: Implement search button with onClick event to trigger search:*/}
+                    {/*Task 5: Display search results and handle empty results with a message. */}
+                </div>
+            </div>
         </div>
     );
 }
