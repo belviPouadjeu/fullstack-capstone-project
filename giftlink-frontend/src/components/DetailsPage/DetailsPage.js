@@ -85,9 +85,8 @@ return (
                 <div className="card-body">
                     <div className="image-placeholder-large">
                         {gift.image ? (
-						 	// Task 5: Display gift image
-						 	{{insert code here}}
-                            <img src={gift.image} alt={gift.name} className="product-image-large" />
+			// Task 5: Display gift image
+			/*insert code here*/
                         ) : (
                             <div className="no-image-available-large">No Image Available</div>
                         )}
