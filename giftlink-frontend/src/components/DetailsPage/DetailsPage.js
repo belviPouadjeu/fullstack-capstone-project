@@ -92,11 +92,21 @@ return (
                         )}
                     </div>
                     // Task 6: Display gift details
-                    <p><strong>Category:</strong> {{insert code here }} </p>
-                    <p><strong>Condition:</strong> {{insert code here }} </p>
-                    <p><strong>Date Added:</strong> {{insert code here }} </p>
-                    <p><strong>Age (Years):</strong> {{insert code here }} </p>
-                    <p><strong>Description:</strong> {{insert code here }} </p>
+                    	<p><strong>Category:</strong> 
+				{/* insert code here  */}
+			</p>
+                    	<p><strong>Condition:</strong> 
+				{/* insert code here  */}
+                    	</p>
+                    	<p><strong>Date Added:</strong> 
+				{/* insert code here  */}
+                        </p>
+                    	<p><strong>Age (Years):</strong> 
+				{/* insert code here  */}
+                    	</p>
+                    	<p><strong>Description:</strong> 
+				{/* insert code here  */}
+                    	</p>
                 </div>
             </div>
             <div className="comments-section mt-4">
