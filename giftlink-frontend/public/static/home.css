@@ -1,11 +1,14 @@
 /* Task 1: Style the body */
 body {
     font-family: 'Montserrat', sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
+    background-color: #f4f4f4;
 }
 
 /* Task 2: Create a pseudo-element for the background and blur */
@@ -17,35 +20,46 @@ body::before {
     width: 100%;
     height: 100%;
     background: url('https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?ixlib=rb-4.0.3') center/cover;
-    filter: blur(3px);
+    filter: blur(8px);
     z-index: -1;
 }
 
 /* Task 3: Style the content area */
 .content {
-    background: rgba(255, 255, 255, 0.9);
-    padding: 3rem;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    backdrop-filter: blur(10px);
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    color: white;
+    max-width: 600px;
+    padding: 2rem;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
 }
 
 /* Task 4: Add styles for headings, paragraphs, and buttons */
-h1, h2, .lead, .btn-primary {
-    color: #333;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: white;
+}
+
+h2 {
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: white;
+}
+
+.lead {
+    font-size: 1.1rem;
+    color: white;
+    margin-bottom: 2rem;
 }
 
 .btn-primary {
-    background: linear-gradient(45deg, #667eea, #764ba2);
-    border: none;
+    font-size: 1.2rem;
     padding: 12px 30px;
-    font-size: 1.1rem;
-    border-radius: 25px;
-    transition: transform 0.3s ease;
-}
-
-.btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    color: white;
 }
