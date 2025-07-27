@@ -18,46 +18,64 @@
 
         //Step 1 - Task 4
          const [showerr, setShowerr] = useState('');
+        const [loading, setLoading] = useState(false);
 
         //Step 1 - Task 5
         const navigate = useNavigate();
         const { setIsLoggedIn } = useAppContext();
 
         const handleRegister = async () => {
-            const response = await fetch(`${urlConfig.backendUrl}/api/auth/register`, {
-                //Step 1 - Task 6
-                method: 'POST',
-                //Step 1 - Task 7
-                headers: {
-                    'content-type': 'application/json',
-                },
-                //Step 1 - Task 8
-                body: JSON.stringify({
-                    firstName: firstName,
-                    lastName: lastName,
-                    email: email,
-                    password: password
-                })
-            });
-
-            //Step 2 - Task 1
-            const json = await response.json();
-            console.log('json data', json);
-            console.log('er', json.error);
-
-            //Step 2 - Task 2
-            if (json.authtoken) {
-                sessionStorage.setItem('auth-token', json.authtoken);
-                sessionStorage.setItem('name', firstName);
-                sessionStorage.setItem('email', json.email);
-            //Step 2 - Task 3
-                setIsLoggedIn(true);
-            //Step 2 - Task 4
-                navigate('/app');
+            setShowerr('');
+            setLoading(true);
+            
+            // Basic validation
+            if (!firstName || !lastName || !email || !password) {
+                setShowerr('All fields are required');
+                setLoading(false);
+                return;
             }
-            if (json.error) {
-            //Step 2 - Task 5
-                setShowerr(json.error);
+            
+            try {
+                const response = await fetch(`${urlConfig.backendUrl}/api/auth/register`, {
+                    //Step 1 - Task 6
+                    method: 'POST',
+                    //Step 1 - Task 7
+                    headers: {
+                        'content-type': 'application/json',
+                    },
+                    //Step 1 - Task 8
+                    body: JSON.stringify({
+                        firstName: firstName,
+                        lastName: lastName,
+                        email: email,
+                        password: password
+                    })
+                });
+
+                //Step 2 - Task 1
+                const json = await response.json();
+                console.log('json data', json);
+                console.log('er', json.error);
+
+                //Step 2 - Task 2
+                if (json.authtoken) {
+                    sessionStorage.setItem('auth-token', json.authtoken);
+                    sessionStorage.setItem('name', firstName);
+                    sessionStorage.setItem('email', json.email);
+                //Step 2 - Task 3
+                    setIsLoggedIn(true);
+                //Step 2 - Task 4
+                    navigate('/app');
+                }
+                if (json.error) {
+                //Step 2 - Task 5
+                    setShowerr(json.error);
+                }
+            } catch (error) {
+                console.error('Registration error:', error);
+                setShowerr('Registration failed. Please check if the backend server is running.');
+            } finally {
+                setLoading(false);
             }
         }
 
@@ -120,7 +138,9 @@
                                     onChange={(e) => setPassword(e.target.value)}
                                 />
                             </div>
-                            <button className="btn btn-primary w-100 mb-3" onClick={handleRegister}>Register</button>
+                            <button className="btn btn-primary w-100 mb-3" onClick={handleRegister} disabled={loading}>
+                                {loading ? 'Registering...' : 'Register'}
+                            </button>
                             <p className="mt-4 text-center">
                                 Already a member? <Link to="/app/login" className="text-primary">Login</Link>
                             </p>
