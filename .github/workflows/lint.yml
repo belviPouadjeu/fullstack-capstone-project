@@ -1,0 +1,29 @@
+name: Lint JavaScript Code
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  lint_js:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '20'  # or match your project version
+
+    - name: Install JSHint
+      run: npm install -g jshint
+
+    - name: Run JSHint on JavaScript files
+      run: jshint "**/*.js"
+
+    - name: Lint complete
+      run: echo "Linting completed successfully."
