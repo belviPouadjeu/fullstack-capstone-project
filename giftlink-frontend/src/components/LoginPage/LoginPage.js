@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { urlConfig } from '../../../config';
+import { urlConfig } from '../../config';
 import './LoginPage.css';
 
 function LoginPage() {
