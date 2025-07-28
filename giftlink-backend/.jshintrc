@@ -1,0 +1,9 @@
+{
+  "esversion": 8,
+  "node": true,
+  "unused": "vars",  // Signale seulement les variables inutilisées (pas les paramètres)
+  "undef": true,
+  "eqeqeq": true,
+  "strict": false,
+  "asi": false
+}
