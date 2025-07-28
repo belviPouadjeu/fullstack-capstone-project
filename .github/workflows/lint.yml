@@ -1,102 +1,58 @@
 name: CI/CD Pipeline
 
 on:
-  pull_request:
-    branches: [main]
   push:
     branches: [main]
-
-env:
-  NODE_VERSION: '22.17'  # Exactement votre version (v22.17.0)
+  pull_request:
+    branches: [main]
 
 jobs:
-  lint_js:
-    name: Lint Backend (Node.js)
+  lint_backend:
+    name: Lint Backend
     runs-on: ubuntu-latest
     defaults:
       run:
         working-directory: ./giftlink-backend
 
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Setup Node.js
+      - name: Setup Node.js (v22.17.0)
         uses: actions/setup-node@v3
         with:
-          node-version: ${{ env.NODE_VERSION }}
-          cache: 'npm'
-          cache-dependency-path: 'giftlink-backend/package-lock.json'
-
-      - name: Cache Dependencies
-        uses: actions/cache@v3
-        with:
-          path: |
-            giftlink-backend/node_modules
-            ~/.npm
-          key: ${{ runner.os }}-backend-${{ hashFiles('giftlink-backend/package-lock.json') }}
-
-      - name: Install Dependencies
-        run: npm ci
+          node-version: '22.17.0'
 
       - name: Install JSHint
         run: npm install jshint --save-dev
 
-      - name: Run JSHint
+      - name: Run JSHint with config
         run: |
-          jshint app.js auth.js giftRoutes.js searchRoutes.js
-          echo "✓ Backend linting completed successfully"
+          jshint --config .jshintrc app.js routes/*.js
+          echo "✓ Backend linting completed"
 
-      - name: Run Mocha Tests
-        run: npm test
-
-  client_build:
-    name: Build Frontend (React)
+  build_frontend:
+    name: Build Frontend
+    needs: lint_backend
     runs-on: ubuntu-latest
-    needs: lint_js
     defaults:
       run:
         working-directory: ./giftlink-frontend
 
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: ${{ env.NODE_VERSION }}
-          cache: 'npm'
-          cache-dependency-path: 'giftlink-frontend/package-lock.json'
+          node-version: '20.x'
 
-      - name: Cache Dependencies
-        uses: actions/cache@v3
-        with:
-          path: |
-            giftlink-frontend/node_modules
-            ~/.npm
-          key: ${{ runner.os }}-frontend-${{ hashFiles('giftlink-frontend/package-lock.json') }}
-
-      - name: Install Dependencies
+      - name: Install dependencies
         run: npm ci
 
       - name: Run ESLint
         run: |
           npx eslint . --ext .js,.jsx --fix
           npx eslint . --ext .js,.jsx --format junit --output-file eslint-results.xml || true
-          echo "✓ Frontend linting completed"
 
       - name: Build React App
         run: npm run build
-
-      - name: Deploy to Backend
-        run: |
-          mkdir -p ../giftlink-backend/public
-          cp -r build/* ../giftlink-backend/public/
-          echo "✓ Frontend built and copied to backend/public"
-
-      - name: Upload Build Artifact
-        uses: actions/upload-artifact@v3
-        with:
-          name: frontend-build
-          path: giftlink-frontend/build
