@@ -1,0 +1,68 @@
+services:
+  # MongoDB Database
+  mongodb:
+    image: mongo:7-alpine
+    container_name: giftlink-mongodb-prod
+    restart: unless-stopped
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_USERNAME:-belvi}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_PASSWORD:-belvi123}
+      MONGO_INITDB_DATABASE: giftsdb
+    volumes:
+      - mongodb_data:/data/db
+      - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
+    networks:
+      - giftlink-network
+    healthcheck:
+      test: echo 'db.runCommand("ping").ok' | mongosh localhost:27017/test --quiet
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Backend API (from Docker Hub)
+  backend:
+    image: belvinar/giftlink-backend:latest
+    container_name: giftlink-backend-prod
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+      - MONGO_URL=mongodb://${MONGO_USERNAME:-belvi}:${MONGO_PASSWORD:-belvi123}@mongodb:27017/giftsdb
+      - JWT_SECRET=${JWT_SECRET:-mySecretKey123912738aopsgjnspkmndfsopkvajoirjg94gf2opfng2moknm}
+    ports:
+      - "3060:3060"
+    depends_on:
+      mongodb:
+        condition: service_healthy
+    networks:
+      - giftlink-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3060/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Frontend React App (from Docker Hub)
+  frontend:
+    image: belvinar/giftlink-frontend:latest
+    container_name: giftlink-frontend-prod
+    restart: unless-stopped
+    ports:
+      - "8080:80"
+    depends_on:
+      backend:
+        condition: service_healthy
+    networks:
+      - giftlink-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+volumes:
+  mongodb_data:
+    driver: local
+
+networks:
+  giftlink-network:
+    driver: bridge
